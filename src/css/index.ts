@@ -165,7 +165,7 @@ export class CSSParsedDeclaration {
         this.color = parse(color, declaration.color);
         this.display = parse(display, declaration.display);
         this.float = parse(float, declaration.cssFloat);
-        this.fontFamily = parse(fontFamily, declaration.fontFamily);
+        this.fontFamily =  parse(fontFamily, declaration.fontFamily);
         this.fontSize = parse(fontSize, declaration.fontSize);
         this.fontStyle = parse(fontStyle, declaration.fontStyle);
         this.fontVariant = parse(fontVariant, declaration.fontVariant);
@@ -200,8 +200,16 @@ export class CSSParsedDeclaration {
         this.visibility = parse(visibility, declaration.visibility);
         this.wordBreak = parse(wordBreak, declaration.wordBreak);
         this.zIndex = parse(zIndex, declaration.zIndex);
+        this.ensureFontAwesome5();
     }
 
+    ensureFontAwesome5(): void {
+        if (this.fontFamily) {
+            this.fontFamily.forEach((it, index) => {
+                this.fontFamily[index] = it.replace('Font Awesome 5 Free', 'Font Awesome\\ 5 Free');
+            });
+        }
+    }
     isVisible(): boolean {
         return this.display > 0 && this.opacity > 0 && this.visibility === VISIBILITY.VISIBLE;
     }
