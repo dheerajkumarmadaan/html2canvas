@@ -206,7 +206,7 @@ export class CSSParsedDeclaration {
     ensureFontAwesome5(): void {
         if (this.fontFamily) {
             this.fontFamily.forEach((it, index) => {
-                this.fontFamily[index] = it.replace('Font Awesome 5 Pro', 'Font Awesome\\ 5 Pro');
+                this.fontFamily[index] = it.replace('Font Awesome 5', 'Font Awesome\\ 5');
             });
         }
     }

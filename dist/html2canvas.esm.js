@@ -4070,7 +4070,7 @@ var CSSParsedDeclaration = /** @class */ (function () {
         var _this = this;
         if (this.fontFamily) {
             this.fontFamily.forEach(function (it, index) {
-                _this.fontFamily[index] = it.replace('Font Awesome 5 Pro', 'Font Awesome\\ 5 Pro');
+                _this.fontFamily[index] = it.replace('Font Awesome 5', 'Font Awesome\\ 5');
             });
         }
     };
